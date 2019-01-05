@@ -19,19 +19,19 @@
 </template>
 
 <script>
-import remoteLoad from '../utils/remoteLoad.js'
-import { MapKey, MapCityName } from '../../config/config'
+import remoteLoad from "../utils/remoteLoad.js";
+import { MapKey, MapCityName } from "../../config/config";
 export default {
-  name:'gaode',
-  props: ['lat', 'lng'],
-  data () {
+  name: "gaode",
+  props: ["lat", "lng"],
+  data() {
     return {
-      searchKey: '',
+      searchKey: "",
       placeSearch: null,
       dragStatus: false,
       AMapUI: null,
       AMap: null
-    }
+    };
   },
   // watch: {
   //   searchKey () {
@@ -41,8 +41,8 @@ export default {
   //   }
   // },
   methods: {
-    back(){
-      this.$router.goBack()
+    back() {
+      this.$router.goBack();
     },
     // // 搜索
     // handleSearch () {
@@ -51,21 +51,21 @@ export default {
     //   }
     // },
     // 实例化地图
-    drag_(){
+    drag_() {
       // debugger;
       console.log(window.AMapUI);
-      let AMapUI = this.AMapUI = window.AMapUI;
-      let AMap = this.AMap = window.AMap;
-      AMapUI.loadUI(['misc/PositionPicker'], function(PositionPicker) {
-        var map = new AMap.Map('js-container', {
+      let AMapUI = (this.AMapUI = window.AMapUI);
+      let AMap = (this.AMap = window.AMap);
+      AMapUI.loadUI(["misc/PositionPicker"], function(PositionPicker) {
+        var map = new AMap.Map("js-container", {
           zoom: 16,
           scrollWheel: true
         });
         var positionPicker = new PositionPicker({
-          mode: 'dragMap',
+          mode: "dragMap",
           map: map
         });
-        positionPicker.on('success', function(positionResult) {
+        positionPicker.on("success", function(positionResult) {
           console.log(positionResult.position);
           // document.getElementById('lnglat').innerHTML = positionResult.position;
         });
@@ -122,29 +122,59 @@ export default {
     //   })
     // }
   },
-  async mounted () {
+  async mounted() {
     // 已载入高德地图API，则直接初始化地图
     if (window.AMap && window.AMapUI) {
       // this.initMap()
-      this.drag_()
-    // 未载入高德地图API，则先载入API再初始化
+      this.drag_();
+      // 未载入高德地图API，则先载入API再初始化
     } else {
       await remoteLoad(`http://webapi.amap.com/maps?v=1.3&key=${MapKey}`);
-      await remoteLoad('http://webapi.amap.com/ui/1.0/main.js?v=1.0.11');
+      await remoteLoad("http://webapi.amap.com/ui/1.0/main.js?v=1.0.11");
       // this.initMap()
-      this.drag_()
+      this.drag_();
     }
   }
-
-}
+};
 </script>
 
 <style lang="css">
-  #js-container{height: 500px}
-.m-map{ min-width: 500px; min-height: 300px; position: relative; }
-.m-map .map{ width: 100%; height: 100%; }
-.m-map .search{ position: absolute; top: 10px; left: 10px; width: 285px; z-index: 1; }
-.m-map .search input{ width: 180px; border: 1px solid #ccc; line-height: 20px; padding: 5px; outline: none; }
-.m-map .search button{ line-height: 26px; background: #fff; border: 1px solid #ccc; width: 50px; text-align: center; }
-.m-map .result{ max-height: 300px; overflow: auto; margin-top: 10px; }
+#js-container {
+  height: 500px;
+}
+.m-map {
+  min-width: 500px;
+  min-height: 300px;
+  position: relative;
+}
+.m-map .map {
+  width: 100%;
+  height: 100%;
+}
+.m-map .search {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 285px;
+  z-index: 1;
+}
+.m-map .search input {
+  width: 180px;
+  border: 1px solid #ccc;
+  line-height: 20px;
+  padding: 5px;
+  outline: none;
+}
+.m-map .search button {
+  line-height: 26px;
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 50px;
+  text-align: center;
+}
+.m-map .result {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+}
 </style>
