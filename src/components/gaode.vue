@@ -123,6 +123,7 @@ export default {
     // }
   },
   async mounted() {
+    console.log(this.$router)
     // 已载入高德地图API，则直接初始化地图
     if (window.AMap && window.AMapUI) {
       // this.initMap()

@@ -42,6 +42,7 @@
       }
     },
     mounted() {
+       console.log(this.$router)
       var line = echarts.init(document.querySelector('.line'));
       var option = {
         title: {

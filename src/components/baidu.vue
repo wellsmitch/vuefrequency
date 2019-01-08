@@ -39,6 +39,7 @@
    mounted () {
 
         this.drag_()
+        console.log(this.$router)
 
     }
 

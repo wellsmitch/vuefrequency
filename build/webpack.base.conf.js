@@ -11,9 +11,15 @@ function resolve (dir) {
 
 
 module.exports = {
+  // axios兼容性配置 start
+  // context: path.resolve(__dirname, '../'),
+  // entry: {
+  //   app: ["babel-polyfill",'./src/main.js']
+  // },
+    // axios兼容性配置 end
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: ["babel-polyfill",'./src/main.js']
+    app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -28,7 +34,8 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'ASSETS': path.resolve(__dirname, '../src/assets'),
-      'UTILS': path.resolve(__dirname, '../src/utils')
+      'UTILS': path.resolve(__dirname, '../src/utils'),
+      'STATIC': path.resolve(__dirname, '../static')
     }
   },
   module: {

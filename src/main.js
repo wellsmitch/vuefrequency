@@ -4,8 +4,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './js/imagetracer_v1.2.1.js'
 import './utils/vueCps'//公共组件需在此引入
-
+Vue.prototype.HOST = '/api'
 new Vue({
   el: '#app',
   router,

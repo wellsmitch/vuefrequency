@@ -29,7 +29,8 @@ export default {
           if (webview_list.indexOf(webview) == webview_list.length-1){
             webview.canBack((e)=>{
               if(e.canBack) {
-                _this.transitionName = 'slide-left';
+                // _this.transitionName = 'slide-right';
+                _this.$router.isBack = true;
                 webview.back();
               } else {
                 plus.nativeUI.confirm('确认退出？', (event)=>{
@@ -40,9 +41,11 @@ export default {
               }
             })
           }else {
+            
             webview_list[webview_list.length-1].canBack((e)=>{
               if(e.canBack) {
-                _this.transitionName = 'slide-left';
+           
+                _this.transitionName = 'slide-right';
                 webview_list[webview_list.length-1].back();
               } else {
                 webview_list[webview_list.length-1].close();
@@ -52,7 +55,6 @@ export default {
         });
       });
     }
-
   },
   mounted(){
 	  this.plus_ready()
@@ -64,10 +66,19 @@ export default {
       //可以再次进行监听上一个组件是哪个   必要的需求时可以使用这个方法
 
       let isBack = this.$router.isBack;
+      // alert(isBack)
       if (isBack) {
         this.transitionName = 'slide-right';
-      } else{
-        this.transitionName = 'slide-left';
+      } 
+      else{
+        // alert(window.slider)
+        //  if(window.slider){
+          //  this.transitionName = 'slide-right';
+          //  window.slider = false;
+        //  }else{
+           this.transitionName = 'slide-left';
+        //  }
+      
       }
         this.$router.isBack = false
     }
@@ -88,7 +99,7 @@ export default {
 .transitionAction {
   position: absolute;
   width:100%;
-  transition: all .8s cubic-bezier(.55,0,.1,1);
+  transition: all .5s cubic-bezier(.55,0,.1,1);
 }
 .slide-right-enter,.slide-left-leave-active{
   /*opacity: 0;*/

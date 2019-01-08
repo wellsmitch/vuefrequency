@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // '/api':{
+      //   target:'http://localhost:3000',
+      //   changeOrigin:true,
+      //   parhRewrite:{
+      //     '^/api':''
+      //   }
+      // }
+    },
 
     // Various Dev Server settings  172.16.10.19
     host: '0.0.0.0',
