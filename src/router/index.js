@@ -6,7 +6,6 @@ import gaode from '@/components/gaode'
 import gaode_ from '@/components/gaode_'
 import baidu from '@/components/baidu'
 import svfff from '@/components/svfff'
-import clip_pic from '@/components/clip_pic'
 
 
 Router.prototype.goBack = function () {
@@ -22,11 +21,6 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: home
-    },
-    {
-      path: '/clip_pic',
-      name: 'clip_pic',
-      component: clip_pic
     },
     // {
     //   path: '/gaode',
