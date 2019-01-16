@@ -2,7 +2,7 @@
     <div>
 
       <div style="position: relative;">
-        <div id="svgcontainer"></div>
+        <!-- <div id="svgcontainer"></div> -->
         <div style="position: absolute;top: 0;left: 0;">
           <svg id="ctr" width='500' height='500'>
             <!--<polyline points='220,10 300,210 170,250 123,234' fill='none' stroke='#000' stroke-width='10'></polyline>-->
@@ -17,22 +17,23 @@
 </template>
 
 <script>
-
+  // import '../js/imagetracer_v1.2.1.js'
     export default {
         name: "svfff",
       mounted(){
         // function asv(){
         ImageTracer.imageToSVG(
-          'sss.jpg',
+          'http://172.16.10.19:8080/static/sss.jpg',
           // 'https://images2015.cnblogs.com/blog/1016352/201703/1016352-20170313131540432-1942971531.png',
           function(svgstr){ ImageTracer.appendSVGString( svgstr, 'svgcontainer' ); },
-          {numberofcolors: 256, scale:.5},
+          {numberofcolors: 256, scale:.8},
           'Curvy'
         );
         // }
         function asv() {
           return  $.ajax({
             type:'get',
+            url:'',
             success:function(data){
               return 22222
             }
@@ -40,6 +41,7 @@
         }
 
         function ff() {
+          console.log(5555555);
           document.querySelector('#ctr').setAttribute('width',512);
           document.querySelector('#ctr').setAttribute('height',480);
           var pointsString = [];

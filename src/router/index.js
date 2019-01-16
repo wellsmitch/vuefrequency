@@ -6,12 +6,13 @@ import gaode from '@/components/gaode'
 import gaode_ from '@/components/gaode_'
 import baidu from '@/components/baidu'
 import svfff from '@/components/svfff'
+import clip_pic from '@/components/clip_pic'
 
 
 Router.prototype.goBack = function () {
   this.isBack = true;
   window.history.go(-1)
-}
+};
 
 Vue.use(Router);
 
@@ -22,13 +23,18 @@ export default new Router({
       name: 'home',
       component: home
     },
+    {
+      path: '/clip_pic',
+      name: 'clip_pic',
+      component: clip_pic
+    },
     // {
     //   path: '/gaode',
     //   name: 'gaode',
     //   component: gaode
     // },
     {
-      path: '/svfff',
+      path: '/',
       name: 'svfff',
       component: svfff
     },
@@ -49,7 +55,7 @@ export default new Router({
       component: gaode
     },
     {
-      path: '/',
+      path: '/a',
       name: 'HelloWorld',
       component: HelloWorld
     },
