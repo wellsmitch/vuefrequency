@@ -6,6 +6,7 @@ import App from './App'
 import router from './router'
 import './js/imagetracer_v1.2.1.js'
 import './utils/vueCps'//公共组件需在此引入
+import store from './store'
 
 import VueCropper from 'vue-cropper'
 
@@ -14,6 +15,7 @@ Vue.prototype.HOST = '/api';
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <action_bar levelId="2"></action_bar>
     <router-link to="/home">跳转到home51</router-link>
     <h1 class="rr">{{ msg }}</h1>
     <h2>Essential Links g b v 66r236</h2>
@@ -48,7 +49,16 @@ export default {
   },
   methods: {
     dial(){
-     plus.device.dial( '123456', true );
+      try {
+        alert(21423423)
+        document.addEventListener('plusready', ()=>{
+          alert(21423423)
+          plus.device.dial( '123456', true );
+        })
+
+      }catch(e){
+        alert(e)
+      }
 
     },
     tap_jump() {
@@ -79,6 +89,9 @@ export default {
     }
   },
   mounted() {
+    axios.get('http://172.16.10.35:8080/api/getJson',{}).then(function (data) {
+      console.log(data)
+    })
     function sleep(second, param) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {

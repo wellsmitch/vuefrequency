@@ -6,6 +6,8 @@ import gaode from '@/components/gaode'
 import gaode_ from '@/components/gaode_'
 import baidu from '@/components/baidu'
 import svfff from '@/components/svfff'
+import storetest from '@/components/storetest'
+import kuayu from '@/components/kuayu'
 
 
 Router.prototype.goBack = function () {
@@ -29,8 +31,18 @@ export default new Router({
     // },
     {
       path: '/',
-      name: 'svfff',
-      component: svfff
+      name: 'HelloWorld',
+      component: HelloWorld
+    },
+    {
+      path: '/storetest',
+      name: 'storetest',
+      component: storetest
+    },
+    {
+      path: '/kuayu',
+      name: 'kuayu',
+      component: kuayu
     },
     {
       path: '/baidu',

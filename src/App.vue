@@ -22,7 +22,10 @@ export default {
     plus_ready(){
       var _this = this;
       document.addEventListener('plusready', ()=>{
+
         plus.key.addEventListener('backbutton', ()=>{
+
+          alert(132456)
           let webview = plus.webview.currentWebview();
           let webview_list = plus.webview.all();
           console.log(webview,webview_list,123456)
@@ -41,10 +44,10 @@ export default {
               }
             })
           }else {
-            
+
             webview_list[webview_list.length-1].canBack((e)=>{
               if(e.canBack) {
-           
+
                 _this.transitionName = 'slide-right';
                 webview_list[webview_list.length-1].back();
               } else {
@@ -69,7 +72,7 @@ export default {
       // alert(isBack)
       if (isBack) {
         this.transitionName = 'slide-right';
-      } 
+      }
       else{
         // alert(window.slider)
         //  if(window.slider){
@@ -78,7 +81,7 @@ export default {
         //  }else{
            this.transitionName = 'slide-left';
         //  }
-      
+
       }
         this.$router.isBack = false
     }

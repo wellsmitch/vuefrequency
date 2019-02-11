@@ -1,5 +1,5 @@
 <template>
-    <div class="header-actionbar">
+    <div id="header-actionbar">
       <p>9876543210---{{levelName}}</p>
     </div>
 </template>
