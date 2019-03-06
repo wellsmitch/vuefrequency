@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 var state = {
   num1 : 1,
@@ -12,7 +12,7 @@ var state = {
   b:'222',
   c:'333',
   chen:1
-}
+};
 
 var mutations = {
   tapAdd1(a,b){
@@ -27,7 +27,7 @@ var mutations = {
   numStringFun(a,b){
     a.numString = b + '--异步数据'
   }
-}
+};
 
 var getters = {
     //可以直接用this.$store.getters.userNameEdit来接数据
@@ -51,7 +51,7 @@ var actions = {
 
 // 配合 mapActions
 chen(a,b){
-  console.log(a)
+  console.log(a);
   a.state.chen += b
 },
 
@@ -67,7 +67,7 @@ chen(a,b){
           commit('numStringFun','新的')
       },1000)
     }
-}
+};
 
 export default new Vuex.Store({
   getters,

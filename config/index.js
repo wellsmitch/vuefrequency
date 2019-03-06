@@ -12,7 +12,9 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target:'http://localhost:3000',
+        // target:'http://localhost:3000',
+        target:'https://api.readhub.cn/topic/instantview',
+        // https://api.readhub.cn/topic/newCount?latestCursor=115715
         changeOrigin:true,
         pathRewrite:{
           '^/api':'/'
@@ -55,7 +57,17 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-
+    proxyTable: {
+      '/api':{
+        // target:'http://localhost:3000',
+        target:'https://api.readhub.cn/topic/instantview',
+        // https://api.readhub.cn/topic/newCount?latestCursor=115715
+        changeOrigin:true,
+        pathRewrite:{
+          '^/api':'/'
+        }
+      }
+    },
     /**
      * Source Maps
      */

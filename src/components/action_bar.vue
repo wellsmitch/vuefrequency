@@ -9,7 +9,7 @@
         name: "header-actionbar",
         props:{
           levelId: {
-            type: Number,
+            type: String,
             default: 1  //当前关卡值取值  可以通过计算属性进行变量转为数据的实现
           },
           isLeve1Test: {
@@ -19,7 +19,8 @@
         },
         computed:{
           levelName(){
-            return this.levelId == 1 ? '第一关 &nbsp;&nbsp;单词学习' : this.levelId == 2 ? '第二关 &nbsp;&nbsp;单词学习' : this.levelId == 3 ? '第三关 &nbsp;&nbsp;单词学习' : this.levelId == 4 ? '课前检测' : '单词卡制作'
+            console.log(Number(this.levelId));
+            return Number(this.levelId) == 1 ? '第一关 &nbsp;&nbsp;单词学习' : Number(this.levelId) == 2 ? '第二关 &nbsp;&nbsp;单词学习' : Number(this.levelId) == 3 ? '第三关 &nbsp;&nbsp;单词学习' : Number(this.levelId) == 4 ? '课前检测' : '单词卡制作'
           }
         }
 

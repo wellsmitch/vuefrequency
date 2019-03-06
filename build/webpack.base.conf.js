@@ -19,7 +19,8 @@ module.exports = {
     // axios兼容性配置 end
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: ["babel-polyfill", "./src/main.js"]
+    // app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,

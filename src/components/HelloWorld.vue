@@ -5,6 +5,11 @@
     <h1 class="rr">{{ msg }}</h1>
     <h2>Essential Links g b v 66r236</h2>
     <div slot="xx">dsgg</div>
+    <div style="border: 1px #f41856 solid;display: flex">
+      <div style="background: aliceblue;flex: 1;border: 1px #000;">123</div>
+      <div style="background: darkblue;flex: 1">123</div>
+      <div style="background: gold;flex: 1">123</div>
+    </div>
     <slot style="color:blue;">这是在slot上添加了样式</slot>
     <slot name="xx">
       <div>我是个插槽</div>
@@ -31,6 +36,7 @@
                     <!--<span id="iconsvg"></span>-->
                 </div>
     </div>
+
 
   </div>
 </template>
@@ -63,7 +69,8 @@ export default {
     },
     tap_jump() {
       // var URL = this.HOST +'/users/login'
-      var URL = "http://localhost:3000/users/login";
+      // var URL = "http://localhost:3000/users/login";
+      var URL = this.HOST;
       //var URL = 'http://jx.xuzhixiang.top/ap/api/login.php'
       console.log(URL);
       // axios
@@ -76,11 +83,10 @@ export default {
       //   });
 
       $.ajax({
-        type: "post",
+        type: "GET",
         url: URL,
         data: {
-          name: "songyubin",
-          pw: 123456
+          topicId:'7KAdwj2cOOQ'
         },
         success: function(data) {
           console.log(data,6666666);
@@ -91,7 +97,7 @@ export default {
   mounted() {
     axios.get('http://172.16.10.35:8080/api/getJson',{}).then(function (data) {
       console.log(data)
-    })
+    });
     function sleep(second, param) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -223,7 +229,10 @@ export default {
   border: 1px sandybrown solid;
 }
 
-
+.rr{
+  height: 50px;
+border:.5px #b17745 solid;
+}
 
 
 h1,
@@ -241,4 +250,8 @@ li {
 a {
   color: #42b983;
 }
+  body{
+    margin: 0;
+  }
+
 </style>

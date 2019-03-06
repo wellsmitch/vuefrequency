@@ -13,7 +13,7 @@
 -->
 <template>
   <div class="m-map">
-    
+
 <!--map-->
     <div id="js-container" class="map">正在加载数据 ...</div>
     <!--radio-->
@@ -22,7 +22,7 @@
     <p>{{pick}}</p>
     <p>{{value1}}</p>
     <!--checkbox-->
-    <input type="checkbox" v-model="toggle" :true-value="a_" :false-value="aa_">
+    <input type="checkbox" v-model="toggle" >
     <p>{{toggle}}</p>
     <p>{{a_}}</p>
     <p>{{aa_}}</p>
