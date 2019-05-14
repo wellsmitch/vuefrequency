@@ -2,6 +2,8 @@
   <div class="hello">
     <action_bar levelId="2"></action_bar>
     <router-link to="/home">跳转到home51</router-link>
+    <router-link to="/baidu">跳转到百度地图</router-link>
+    <router-link to="/gaode">跳转到高德</router-link>
     <h1 class="rr">{{ msg }}</h1>
     <h2>Essential Links g b v 66r236</h2>
     <div slot="xx">dsgg</div>

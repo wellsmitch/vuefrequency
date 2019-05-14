@@ -13,16 +13,24 @@
 -->
 <template>
   <div class="m-map">
-    <action_bar :levelId="3"></action_bar>
+    <!--这是全局组件的标签-->
+    <action_ttt></action_ttt>
+    <action_bar :sss=true></action_bar>
     <div id="js-container" class="map">正在加载数据 ...</div>
-
+    <hr>
+<part1 :currentIndex=a></part1>
   </div>
 </template>
 
 <script>
+  import  part1  from './part'
   export default {
+    components:{
+      part1
+    },
     data () {
       return {
+        a:1,
         AMap: null,
         BMap: null
       }
