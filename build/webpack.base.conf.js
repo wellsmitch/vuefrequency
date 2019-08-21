@@ -36,7 +36,8 @@ module.exports = {
       '@': resolve('src'),
       'ASSETS': path.resolve(__dirname, '../src/assets'),
       'UTILS': path.resolve(__dirname, '../src/utils'),
-      'STATIC': path.resolve(__dirname, '../static')
+      'STATIC': path.resolve(__dirname, '../static'),
+      "mui":path.resolve(__dirname,'../src/assets/lib/mui/js/mui.js')
     }
   },
   module: {

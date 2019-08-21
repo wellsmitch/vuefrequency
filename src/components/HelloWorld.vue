@@ -1,10 +1,29 @@
 <template>
-  <div class="hello">
+  <div class="hello" id="refreshContainer">
+    <button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-primary">确认</button>
+    <div id="demo1" class="mui-progressbar">
+      <span></span>
+    </div>
     <action_bar levelId="2"></action_bar>
     <router-link to="/home">跳转到home51</router-link>
     <router-link to="/baidu">跳转到百度地图</router-link>
     <router-link to="/gaode">跳转到高德</router-link>
+    <router-link to="/xuanxiangka">选项卡</router-link>
+    <router-link to="/storetest">跳转到vuex</router-link>
+    <Icon type="folder-open" size='30'></Icon>
+
+    <Icon type="briefcase"></Icon>
     <h1 class="rr">{{ msg }}</h1>
+    <h1>vw测试块元素</h1>
+    <canvas width="100" height="100"></canvas>
+    <div class="overflow">
+      <div class="fl" style="width: 150px;">1111</div>
+      <div class="fl" style="width: 150px">22222</div>
+      <div class="fl" style="width: 150px">33333</div>
+      <div class="fl" style="width: 150px">444444</div>
+      <div class="fl" style="width: 150px">555555</div>
+    </div>
+    <Icon type="load-a" size="50" class="spin"></Icon>
     <h2>Essential Links g b v 66r236</h2>
     <div slot="xx">dsgg</div>
     <div style="border: 1px #f41856 solid;display: flex">
@@ -18,7 +37,16 @@
     </slot>
     <div>{{bb}}</div>
     <button @click="dial()" class="btn">打电话</button>
+    <use2></use2>
     <button @click="tap_jump()">跨域请求</button>
+    <button @click="editarr()">改变数组数据</button>
+    <h1>数组改变视图未更新</h1>
+    <div v-for="item in arr">{{item}}</div>
+    <div>
+      <h2>选项卡</h2>
+      <button class="ss" v-for="(item, index) in se" @click="sel(index)">{{item}}</button>
+      <div v-for="(item, index1) in secon" v-if="seshow == index1">{{item}}</div>
+    </div>
     <div>
 
       <div class="demo">
@@ -39,7 +67,6 @@
                 </div>
     </div>
 
-
   </div>
 </template>
 
@@ -47,20 +74,28 @@
 import axios from "axios";
 import $ from "jquery";
 import  '../js/imagetracer_v1.2.1.js'
+
 export default {
   name: "HelloWorld",
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
-      bb: ""
+      bb: "",
+      arr:[111,222],
+      se:[1,2,3],
+      secon: [11, 22, 33],
+      seshow:0
     };
   },
   methods: {
+    sel(a) {
+      this.seshow = a
+    },
     dial(){
       try {
-        alert(21423423)
+        alert(21423423);
         document.addEventListener('plusready', ()=>{
-          alert(21423423)
+          alert(21423423);
           plus.device.dial( '123456', true );
         })
 
@@ -86,17 +121,28 @@ export default {
 
       $.ajax({
         type: "GET",
-        url: URL,
+        url: 'https://api.readhub.cn/topic',
         data: {
-          topicId:'7KAdwj2cOOQ'
+          lastCursor:'',
+          pageSize:20
+          // topicId:'7KAdwj2cOOQ'
         },
         success: function(data) {
           console.log(data,6666666);
         }
       });
+    },
+    editarr(){
+      /* this.$set(this.arr,0,333);  强制类型转化*/
+      // this.arr[0] = 333;
+      this.$set(this.arr,0,333);
+      this.arr.push(999)
+      console.log(this.arr);
+
     }
   },
   mounted() {
+    this.mui("#demo1").progressbar({progress:20}).show();
     axios.get('http://172.16.10.35:8080/api/getJson',{}).then(function (data) {
       console.log(data)
     });
@@ -198,7 +244,18 @@ export default {
 
 <style lang="scss" scoped>
 @import "~ASSETS/a.scss";
+@import "~ASSETS/mui.scss";
 
+
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.overflow {
+  overflow: hidden;
+}
 #box{
   /* width: 5.76rem; */
   /* width: 5.76rem;

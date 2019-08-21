@@ -11,7 +11,7 @@ var state = {
   a:'111',
   b:'222',
   c:'333',
-  chen:1
+  chen1:1
 };
 
 var mutations = {
@@ -32,7 +32,7 @@ var mutations = {
 var getters = {
     //可以直接用this.$store.getters.userNameEdit来接数据
     userNameEdit: state =>{
-      return (state.userName + '--处理过的数据')
+        return (state.userName + '--处理过的数据11111')
     },
     userNameEdit_: state =>{
       return (state.userName1 + '--处理过的数据')
@@ -52,7 +52,10 @@ var actions = {
 // 配合 mapActions
 chen(a,b){
   console.log(a);
-  a.state.chen += b
+  setTimeout(function () {
+    a.state.chen1 += b
+  },1000)
+
 },
 
 

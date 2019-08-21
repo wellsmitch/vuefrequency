@@ -13,8 +13,9 @@
       <p>我是异步的：{{this.$store.state.numString}}</p>
       <button @click="asynclisten()">异步数据按钮</button>
       <hr>
-      <p>{{this.$store.state.chen}}</p>
+      <p>{{this.$store.state.chen1}}</p>
       <button @click="chenBtn1()">X</button>
+      <div>{{computedfunc}}</div>
     </div>
 </template>
 
@@ -36,13 +37,14 @@
         chenBtn1(){
           this.chen(5)
         },
-        ...mapActions(['chen']),
+
         tapJian() {
           this.$store.commit('tapJian1', 'a')
         },
         asynclisten(){
           this.$store.dispatch('numStringFun1')
-        }
+        },
+        ...mapActions(['chen']),
       },
       mounted(){
         this.$store.commit('numFixFun','superMan')
@@ -62,11 +64,13 @@
         // 把 this.doneCount 映射为 this.$store.getters.doneTodosCount
         ...mapGetters({
           userNameEditaaaaa: 'userNameEdit_'
-        })
+        }),
         // userNameEdit(){
-         //   return this.$store.state.userName
-         // },
-
+        //    return this.$store.state.userName
+        //  },
+        computedfunc() {
+            return 'this is a computedfunc data'
+        }
       }
     }
 </script>

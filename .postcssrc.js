@@ -10,7 +10,8 @@ module.exports = {
     // "postcss-write-svg": {utf8: false},
     // "postcss-cssnext": {},
     "postcss-px-to-viewport": {
-      viewportWidth: 1280, // (Number) The width of the viewport.
+      // viewportWidth: 1280, // (Number) The width of the viewport.
+      viewportWidth: 750, // (Number) The width of the viewport.
       viewportHeight: 752, // (Number) The height of the viewport.
       unitPrecision: 3, // (Number) The decimal numbers to allow the REM units to grow to.
       viewportUnit: 'vw', // (String) Expected units.
