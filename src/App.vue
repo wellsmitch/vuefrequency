@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
+    <!--做了一次提交-->
     <transition :name="transitionName">
       <router-view :class="transitionAction" ref="a" style="background: #fff"/>
     </transition>
