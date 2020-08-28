@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" id="refreshContainer">
+  <div class="hello" id="refreshContainer" s key="HelloWorld">
     <button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-primary">确认</button>
     <div id="demo1" class="mui-progressbar">
       <span></span>
@@ -142,7 +142,7 @@ export default {
     }
   },
   mounted() {
-    this.mui("#demo1").progressbar({progress:20}).show();
+    // this.mui("#demo1").progressbar({progress:20}).show();
     axios.get('http://172.16.10.35:8080/api/getJson',{}).then(function (data) {
       console.log(data)
     });

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" key="home">
     <div @click="back">返回</div>
     <router-link to="/gaode">高德地图</router-link>
     <div class="line"></div>
